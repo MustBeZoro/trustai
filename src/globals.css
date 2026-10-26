@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   THEME TOKENS
+   ========================================================= */
+:root,
+[data-theme="default"] {
+  --bg-app: #ffffff;
+  --bg-app-gradient: linear-gradient(180deg, #faf7ff 0%, #ffffff 100%);
+  --bg-surface: rgba(109, 40, 217, 0.04);
+  --bg-surface-solid: #ffffff;
+  --bg-nav: rgba(255, 255, 255, 0.7);
+  --text-app: #0f172a;
+  --text-muted: #64748b;
+  --border-app: rgba(109, 40, 217, 0.15);
+  --primary: #6d28d9;
+  --primary-hover: #5b21b6;
+  --primary-fg: #ffffff;
+  --primary-soft: rgba(109, 40, 217, 0.1);
+  --primary-glow: rgba(109, 40, 217, 0.35);
+  --accent: #a855f7;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --warning: #f97316;
+  --info: #3b82f6;
+  --muted: #6b7280;
+}
+[data-theme="dark"] {
+  --bg-app: #0b0b10;
+  --bg-app-gradient: linear-gradient(180deg, #12101b 0%, #0b0b10 100%);
+  --bg-surface: rgba(139, 92, 246, 0.06);
+  --bg-surface-solid: #16141f;
+  --bg-nav: rgba(11, 11, 16, 0.75);
+  --text-app: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-app: rgba(139, 92, 246, 0.22);
+  --primary: #8b5cf6;
+  --primary-hover: #a78bfa;
+  --primary-fg: #ffffff;
+  --primary-soft: rgba(139, 92, 246, 0.14);
+  --primary-glow: rgba(139, 92, 246, 0.45);
+  --accent: #c084fc;
+  --danger: #f87171;
+  --success: #4ade80;
+  --warning: #fb923c;
+  --info: #60a5fa;
+  --muted: #9ca3af;
+}
+[data-theme="cyber"] {
+  --bg-app: #000000;
+  --bg-app-gradient: radial-gradient(circle at 50% 0%, #0a001a 0%, #000000 70%);
+  --bg-surface: rgba(168, 85, 247, 0.08);
+  --bg-surface-solid: #050509;
+  --bg-nav: rgba(0, 0, 0, 0.85);
+  --text-app: #e0f2fe;
+  --text-muted: #67e8f9;
+  --border-app: rgba(34, 211, 238, 0.4);
+  --primary: #a855f7;
+  --primary-hover: #c084fc;
+  --primary-fg: #ffffff;
+  --primary-soft: rgba(168, 85, 247, 0.18);
+  --primary-glow: rgba(168, 85, 247, 0.75);
+  --accent: #22d3ee;
+  --danger: #ff2d55;
+  --success: #00ff88;
+  --warning: #ff9500;
+  --info: #00d4ff;
+  --muted: #94a3b8;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+html,
+body {
+  background: var(--bg-app);
+  color: var(--text-app);
+  transition: background 0.35s ease, color 0.35s ease;
+}
+* {
+  border-color: var(--border-app);
+}
+::selection {
+  background: var(--primary-soft);
+  color: var(--text-app);
+}
+
+/* =========================================================
+   UTILITY CLASSES
+   ========================================================= */
+.bg-app { background: var(--bg-app); }
+.bg-app-gradient { background: var(--bg-app-gradient); }
+.bg-surface { background: var(--bg-surface); }
+.bg-surface-solid { background: var(--bg-surface-solid); }
+.bg-nav { background: var(--bg-nav); }
+.text-app { color: var(--text-app); }
+.text-muted { color: var(--text-muted); }
+.text-primary { color: var(--primary); }
+.border-app { border-color: var(--border-app); }
+
+.glass-card {
+  background: var(--bg-surface);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid var(--border-app);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+[data-theme="cyber"] .glass-card {
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.18), inset 0 0 24px rgba(34, 211, 238, 0.04);
+}
+
+.navbar-glass {
+  background: var(--bg-nav);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-app);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-fg);
+  transition: all 0.2s ease;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+  box-shadow: 0 0 24px var(--primary-glow);
+}
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-app);
+  border: 1px solid var(--border-app);
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover { background: var(--primary-soft); border-color: var(--primary); }
+
+.btn-glow {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 30px -8px var(--primary-glow), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  transition: all 0.25s ease;
+}
+.btn-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px -10px var(--primary-glow), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+[data-theme="cyber"] .btn-glow {
+  box-shadow: 0 0 25px var(--primary-glow), 0 0 60px rgba(34, 211, 238, 0.35);
+}
+[data-theme="cyber"] .btn-glow:hover {
+  box-shadow: 0 0 40px var(--primary-glow), 0 0 90px rgba(34, 211, 238, 0.55);
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-22deg); }
+  75% { transform: rotate(15deg); }
+}
+.animate-wave {
+  animation: wave 1.4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+}
+
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+.dot-bounce > span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 3px;
+  border-radius: 999px;
+  background: var(--primary);
+  animation: bounce-dot 1.2s infinite ease-in-out;
+  box-shadow: 0 0 12px var(--primary-glow);
+}
+.dot-bounce > span:nth-child(2) { animation-delay: 0.15s; }
+.dot-bounce > span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slide-in {
+  from { transform: translateX(-100%); opacity: 0.4; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in { animation: slide-in 0.28s cubic-bezier(0.32, 0.72, 0, 1); }
+
+@keyframes fade-up {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-fade-up { animation: fade-up 0.45s ease-out both; }
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 var(--primary-glow); }
+  70% { box-shadow: 0 0 0 14px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.pulse-ring { animation: pulse-ring 2.2s infinite; }
+
+/* =========================================================
+   CHAT WINDOW
+   ========================================================= */
+.chat-window {
+  background: linear-gradient(180deg, rgba(109, 40, 217, 0.16) 0%, var(--bg-surface-solid) 100%);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid var(--border-app);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.25);
+}
+[data-theme="dark"] .chat-window {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.18) 0%, #131120 100%);
+}
+[data-theme="cyber"] .chat-window {
+  background: linear-gradient(180deg, rgba(168, 85, 247, 0.25) 0%, #000000 100%);
+  border: 1px solid rgba(34, 211, 238, 0.55);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.35), 0 0 80px rgba(34, 211, 238, 0.18);
+}
+
+/* =========================================================
+   VERDICT COLORS
+   ========================================================= */
+.verdict-fraud { color: var(--danger); border-color: var(--danger); background: color-mix(in srgb, var(--danger) 12%, transparent); }
+.verdict-safe { color: var(--success); border-color: var(--success); background: color-mix(in srgb, var(--success) 12%, transparent); }
+.verdict-misleading { color: var(--warning); border-color: var(--warning); background: color-mix(in srgb, var(--warning) 12%, transparent); }
+.verdict-satire { color: var(--info); border-color: var(--info); background: color-mix(in srgb, var(--info) 12%, transparent); }
+.verdict-unverified { color: var(--muted); border-color: var(--muted); background: color-mix(in srgb, var(--muted) 12%, transparent); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-app); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }

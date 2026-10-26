@@ -1,0 +1,17 @@
+{
+  "projectId": "72399939",
+  "functions": {
+    "trustai-chat": {
+      "hasChanged": false,
+      "hash": "5a07acb44aba11ee5465efe9edb492555050a914c9d63b96b1a1a6d4b75298fb"
+    },
+    "trustai-quiz": {
+      "hasChanged": false,
+      "hash": "b2a07ef3ed253690ccdcc1b7c0817e31e5fdd64577a01d31115d7465fad7cc4f"
+    },
+    "trustai-verify": {
+      "hasChanged": false,
+      "hash": "41c75627342bd23f72e2991b93759304c1f4b13177e60d7e94e8967f9398be78"
+    }
+  }
+}

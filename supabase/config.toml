@@ -1,0 +1,8 @@
+[functions.trustai-verify]
+verify_jwt = false
+
+[functions.trustai-quiz]
+verify_jwt = false
+
+[functions.trustai-chat]
+verify_jwt = false

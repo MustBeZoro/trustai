@@ -1,0 +1,2 @@
+[functions.analyze-claim]
+verify_jwt = false
